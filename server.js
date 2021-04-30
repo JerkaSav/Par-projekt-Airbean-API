@@ -3,7 +3,6 @@
 // const adapter = new FileSync('accounts.json');
 // const db = lowdb(adapter);
 const express = require('express');
-const { nanoid } = require('nanoid');
 
 const routes = require('./routes/routes');
 const { db } = require('./db/db-operations');
