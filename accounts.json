@@ -1,0 +1,28 @@
+{
+  "accounts": [
+    {
+      "username": "Lisa",
+      "password": "leopwd",
+      "email": "leo@gmail.com",
+      "userid": "iZ_hxBzNeHQAWLqaAq_g0"
+    }
+  ],
+  "orders": [
+    {
+      "itemId": [
+        1,
+        2
+      ],
+      "userId": "iZ_hxBzNeHQAWLqaAq_g0",
+      "id": "YV4-KPll8Cl-9ARrl_OWJ"
+    },
+    {
+      "itemId": [
+        1,
+        4
+      ],
+      "userId": "iZ_hxBzNeHQAWLqaAq_g0",
+      "id": "B5SxfV289g6dU2FWkPGT7"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "name": "Airbean-API",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "lowdb": "^1.0.0"
+    "lowdb": "^1.0.0",
+    "nanoid": "^3.1.22",
+    "node-eta": "^0.9.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "menu.json",
+      "accounts.json"
+    ]
   }
 }
