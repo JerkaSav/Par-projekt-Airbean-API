@@ -35,114 +35,64 @@
       "password": "5Alba11",
       "email": "albas@mail.com",
       "userid": "6XfzZKsB-QbVfes78J6wC"
+    },
+    {
+      "username": "Kalle",
+      "email": "Kalle@Larsson.se",
+      "password": "PWD123",
+      "userid": "Fv9KxOtQYqz-F7x0G_XR4"
+    },
+    {
+      "username": "hej",
+      "email": "hej@Larsson.se",
+      "password": "PWD123",
+      "userid": "27FHA2buG-Yh9WN31sxEY"
     }
   ],
   "orders": [
     {
       "itemId": [
         1,
-        2
-      ],
-      "userId": "2Ys0-6HXHzc0tFBlIccyX",
-      "id": "4rEtLL4SWk9XXVuchH3J-",
-      "orderCreated": "2021-04-30T12:25:54.885Z"
-    },
-    {
-      "itemId": [
-        1,
-        2
-      ],
-      "userId": "2Ys0-6HXHzc0tFBlIccyX",
-      "id": "FrsJ7TR7JbbftX1Ono38C",
-      "orderCreated": "2021-04-30T12:28:56.689Z"
-    },
-    {
-      "itemId": [
-        1,
-        2
-      ],
-      "userId": "2Ys0-6HXHzc0tFBlIccyX",
-      "id": "qae2FsHaRVTmBUUB-P_eU",
-      "orderCreated": "2021-04-30T12:29:17.015Z"
-    },
-    {
-      "itemId": [
-        1,
-        4
-      ],
-      "userId": "2Ys0-6HXHzc0tFBlIccyX",
-      "id": "XxOzaZRAn9i_R4QWoyPS-",
-      "orderCreated": "2021-05-04T07:15:17.766Z"
-    },
-    {
-      "itemId": [
-        3,
-        4
-      ],
-      "userId": "2Ys0-6HXHzc0tFBlIccyX",
-      "id": "1Adb76IpqeMlqwGveaYJP",
-      "orderCreated": "2021-05-04T07:48:38.591Z"
-    },
-    {
-      "itemId": [
-        6,
-        2
-      ],
-      "userId": "vlIQm-Ul7t1i5OwTYfrPY",
-      "id": "wTTYCTwebjy0Sx-7OxR-h",
-      "orderCreated": "2021-05-04T08:05:14.824Z"
-    },
-    {
-      "itemId": [
-        6,
-        2
-      ],
-      "userId": "vlIQm-Ul7t1i5OwTYfrPY",
-      "id": "qZM6V5g_6pUbJ9C_3xMvV",
-      "orderCreated": "2021-05-04T08:07:28.081Z"
-    },
-    {
-      "itemId": [
-        6,
-        2
-      ],
-      "userId": "vlIQm-Ul7t1i5OwTYfrPY",
-      "id": "sPkpPlf1z-UBAJbJMZNrm",
-      "orderCreated": "2021-05-04T08:08:50.584Z"
-    },
-    {
-      "itemId": [
+        2,
         3
       ],
       "userId": "2Ys0-6HXHzc0tFBlIccyX",
-      "id": "QUYdEEILr8fJFKHdROj6y",
-      "orderCreated": "2021-05-04T08:38:51.037Z"
+      "orderCreated": "2021-05-04T12:04:33.257Z",
+      "id": "-cHlNg-1Vg0eyiA762orQ",
+      "eta": 4
     },
     {
       "itemId": [
-        4
+        3,
+        3,
+        3
       ],
       "userId": "2Ys0-6HXHzc0tFBlIccyX",
-      "id": "a3iiDqSx00iXV8pZdE6tb",
-      "orderCreated": "2021-05-04T08:40:57.172Z"
+      "orderCreated": "2021-05-04T12:04:33.257Z",
+      "id": "kyrg26lijDmx39rrfbeIM",
+      "eta": 0
     },
     {
       "itemId": [
-        2
-      ],
-      "userId": "iZ_hxBzNeHQAWLqaAq_g0",
-      "id": "ZAatPEFaEv8yqz_g7ywOn",
-      "orderCreated": "2021-05-04T09:39:11.408Z"
-    },
-    {
-      "itemId": [
-        2,
         3,
-        4
+        3,
+        3
       ],
-      "userId": "6XfzZKsB-QbVfes78J6wC",
-      "id": "Idl3uBYW9ghlky2Ma4bhD",
-      "orderCreated": "2021-05-04T09:52:29.276Z"
+      "userId": "2Ys0-6HXHzc0tFBlIccyX",
+      "orderCreated": "2021-05-04T12:05:36.850Z",
+      "id": "kNi-hE3TJeCRj1-yR9thu",
+      "eta": 15
+    },
+    {
+      "itemId": [
+        3,
+        3,
+        3
+      ],
+      "userId": "2Ys0-6HXHzc0tFBlIccyX",
+      "orderCreated": "2021-05-04T12:07:48.137Z",
+      "id": "0TYma_DEC8ZdWsJrnLoC0",
+      "eta": 2
     }
   ]
 }

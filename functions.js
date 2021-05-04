@@ -10,29 +10,46 @@ function diffTime(orders) {
   let days = Math.floor(hrs / 24);
   let yrs = Math.floor(days / 365);
 
-  let diff = { orderId: orders[i].id, mins: mins };
+  let diff = {
+    orderDone: false,
+    orderId: orders[i].id,
+    OrderlifeTime: { mins: mins }
+  };
   let calMinutes = hrs * 60;
   let calHours = days * 24;
   let caldays = yrs * 365;
+  if (mins > orders[i].eta) {
+    diff.orderDone = true;
+  }
+  if (!diff.orderDone) {
+    diff.timeLeft = orders[i].eta - mins;
+  }
 
   if (mins >= 60) {
-    diff = { orderId: orders[i].id, hours: hrs, mins: mins - calMinutes };
+    diff = {
+      orderId: orders[i].id,
+      OrderlifeTime: { hours: hrs, mins: mins - calMinutes }
+    };
 
     if (hrs >= 24) {
       diff = {
         orderId: orders[i].id,
-        days: days,
-        hours: hrs - calHours,
-        mins: mins - calMinutes
+        OrderlifeTime: {
+          days: days,
+          hours: hrs - calHours,
+          mins: mins - calMinutes
+        }
       };
 
       if (days >= 365) {
         diff = {
           orderId: orders[i].id,
-          years: yrs,
-          days: days - caldays,
-          hours: hrs - calHours,
-          mins: mins - calMinutes
+          OrderlifeTime: {
+            years: yrs,
+            days: days - caldays,
+            hours: hrs - calHours,
+            mins: mins - calMinutes
+          }
         };
       }
     }
@@ -61,37 +78,38 @@ function calDiffInTime(orders) {
 }
 
 function checkUser(account) {
-  const usernameExists = findUser('username', account.username)
-  const emailExists = findUser('email', account.email)
+  const usernameExists = findUser('username', account.username);
+  const emailExists = findUser('email', account.email);
   account.userid = nanoid();
-  
-   const result = {
-     success: false,
-     usernameExists: false,
-     emailExists: false
-   }
 
-   if (usernameExists) {
-     result.usernameExists = true
-   }
-   if (emailExists) {
-     result.emailExists = true
-   }
-   if (!result.usernameExists && !result.emailExists) {
-     writeToDb('accounts', account)
-     result.success = true
-   }
+  const result = {
+    success: false,
+    usernameExists: false,
+    emailExists: false
+  };
+
+  if (usernameExists) {
+    result.usernameExists = true;
+  }
+  if (emailExists) {
+    result.emailExists = true;
+  }
+  if (!result.usernameExists && !result.emailExists) {
+    writeToDb('accounts', account);
+    result.success = true;
+  }
   return result;
 }
 
 function createOrder(order) {
   order.orderCreated = today;
   order.id = nanoid();
-    writeToDb('orders', order)
-    const orderResult = {
-      eta: today.getMinutes(),
-      orderid: order.id
-    }
+  order.eta = Math.floor(Math.random() * 15) + 2;
+  writeToDb('orders', order);
+  const orderResult = {
+    eta: order.eta,
+    orderid: order.id
+  };
   return orderResult;
 }
 
