@@ -17,6 +17,24 @@
       "email": "Lars@Larsson.se",
       "password": "PWD123",
       "userid": "vlIQm-Ul7t1i5OwTYfrPY"
+    },
+    {
+      "username": "Robin",
+      "password": "robinwd",
+      "email": "robinsmail@gmail.com",
+      "userid": "g-gzSMe40_E50vLE6cNZL"
+    },
+    {
+      "username": "Mia",
+      "password": "mi24ddd",
+      "email": "miolarsson@gmail.com",
+      "userid": "8tq68E5uJdmvOiN-GEJT7"
+    },
+    {
+      "username": "Alba",
+      "password": "5Alba11",
+      "email": "albas@mail.com",
+      "userid": "6XfzZKsB-QbVfes78J6wC"
     }
   ],
   "orders": [
@@ -91,6 +109,40 @@
       "userId": "vlIQm-Ul7t1i5OwTYfrPY",
       "id": "sPkpPlf1z-UBAJbJMZNrm",
       "orderCreated": "2021-05-04T08:08:50.584Z"
+    },
+    {
+      "itemId": [
+        3
+      ],
+      "userId": "2Ys0-6HXHzc0tFBlIccyX",
+      "id": "QUYdEEILr8fJFKHdROj6y",
+      "orderCreated": "2021-05-04T08:38:51.037Z"
+    },
+    {
+      "itemId": [
+        4
+      ],
+      "userId": "2Ys0-6HXHzc0tFBlIccyX",
+      "id": "a3iiDqSx00iXV8pZdE6tb",
+      "orderCreated": "2021-05-04T08:40:57.172Z"
+    },
+    {
+      "itemId": [
+        2
+      ],
+      "userId": "iZ_hxBzNeHQAWLqaAq_g0",
+      "id": "ZAatPEFaEv8yqz_g7ywOn",
+      "orderCreated": "2021-05-04T09:39:11.408Z"
+    },
+    {
+      "itemId": [
+        2,
+        3,
+        4
+      ],
+      "userId": "6XfzZKsB-QbVfes78J6wC",
+      "id": "Idl3uBYW9ghlky2Ma4bhD",
+      "orderCreated": "2021-05-04T09:52:29.276Z"
     }
   ]
 }

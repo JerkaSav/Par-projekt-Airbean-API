@@ -1,4 +1,5 @@
-const db = require('./db/db-operations');
+const { writeToDb, findUser } = require('./db/db-operations');
+const { nanoid } = require('nanoid');
 const today = new Date();
 const menu = require('./menu.json');
 
@@ -59,4 +60,39 @@ function calDiffInTime(orders) {
   return orderHistory;
 }
 
-module.exports = { calDiffInTime };
+function checkUser(account) {
+  const usernameExists = findUser('username', account.username)
+  const emailExists = findUser('email', account.email)
+  account.userid = nanoid();
+  
+   const result = {
+     success: false,
+     usernameExists: false,
+     emailExists: false
+   }
+
+   if (usernameExists) {
+     result.usernameExists = true
+   }
+   if (emailExists) {
+     result.emailExists = true
+   }
+   if (!result.usernameExists && !result.emailExists) {
+     writeToDb('accounts', account)
+     result.success = true
+   }
+  return result;
+}
+
+function createOrder(order) {
+  order.orderCreated = today;
+  order.id = nanoid();
+    writeToDb('orders', order)
+    const orderResult = {
+      eta: today.getMinutes(),
+      orderid: order.id
+    }
+  return orderResult;
+}
+
+module.exports = { calDiffInTime, checkUser, createOrder };
