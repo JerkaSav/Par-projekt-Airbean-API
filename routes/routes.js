@@ -4,11 +4,11 @@ const router = new Router();
 const { nanoid } = require('nanoid');
 const menu = require('../menu.json');
 // console.log(menu);
-for (var key of Object.keys(menu)) {
-  console.log(Object.keys(menu));
-  console.log(key);
-  console.table(menu['menu'][0].id);
-}
+// for (var key of Object.keys(menu)) {
+//   console.log(Object.keys(menu));
+//   console.log(key);
+//   console.table(menu['menu'][0].id);
+// }
 // Get menu
 router.get('/coffee', (req, res) => {
   res.json(menu);
