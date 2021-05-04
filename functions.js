@@ -16,25 +16,25 @@ function diffTime(orders) {
 
   if (mins >= 60) {
     diff = { orderId: orders[i].id, hours: hrs, mins: mins - calMinutes };
-  }
 
-  if (hrs >= 24) {
-    diff = {
-      orderId: orders[i].id,
-      days: days,
-      hours: hrs - calHours,
-      mins: mins - calMinutes
-    };
-  }
+    if (hrs >= 24) {
+      diff = {
+        orderId: orders[i].id,
+        days: days,
+        hours: hrs - calHours,
+        mins: mins - calMinutes
+      };
 
-  if (days >= 365) {
-    diff = {
-      orderId: orders[i].id,
-      years: yrs,
-      days: days - caldays,
-      hours: hrs - calHours,
-      mins: mins - calMinutes
-    };
+      if (days >= 365) {
+        diff = {
+          orderId: orders[i].id,
+          years: yrs,
+          days: days - caldays,
+          hours: hrs - calHours,
+          mins: mins - calMinutes
+        };
+      }
+    }
   }
 
   return diff;
@@ -45,13 +45,15 @@ function calDiffInTime(orders) {
   for (i = 0; i < orders.length; i++) {
     orderHistory.push([diffTime(orders)]);
 
-    for (x = 0; x < menu['menu'].length; x++) {
-      if (orders[i].itemId[x] === menu['menu'][x].id) {
-        orderHistory[i].push({
-          title: menu['menu'][x].title,
-          price: menu['menu'][x].price
-        });
-      }
+    for (x = 0; x < orders[i].itemId.length; x++) {
+      const findId = menu['menu'].find(
+        (element) => element.id === orders[i].itemId[x]
+      );
+
+      orderHistory[i].push({
+        title: findId.title,
+        price: findId.price
+      });
     }
   }
   return orderHistory;
