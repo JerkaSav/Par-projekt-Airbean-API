@@ -1,6 +1,6 @@
-const db = require('./db-operations');
+const db = require('./db/db-operations');
 const today = new Date();
-const menu = require('../menu.json');
+const menu = require('./menu.json');
 
 function diffTime(orders) {
   let msec = today.getTime() - new Date(orders[i].orderCreated).getTime();
@@ -8,31 +8,43 @@ function diffTime(orders) {
   let hrs = Math.floor(mins / 60);
   let days = Math.floor(hrs / 24);
   let yrs = Math.floor(days / 365);
-  let diff = { Mins: mins };
+
+  let diff = { orderId: orders[i].id, mins: mins };
   let calMinutes = hrs * 60;
   let calHours = days * 24;
   let caldays = yrs * 365;
+
   if (mins >= 60) {
-    diff = { Hours: hrs, Mins: mins - calMinutes };
+    diff = { orderId: orders[i].id, hours: hrs, mins: mins - calMinutes };
   }
+
   if (hrs >= 24) {
-    diff = { Days: days, Hours: hrs - calHours, Mins: mins - calMinutes };
-  }
-  if (days >= 365) {
     diff = {
-      Years: yrs,
-      Days: days - caldays,
-      Hours: hrs - calHours,
-      Mins: mins - calMinutes
+      orderId: orders[i].id,
+      days: days,
+      hours: hrs - calHours,
+      mins: mins - calMinutes
     };
   }
+
+  if (days >= 365) {
+    diff = {
+      orderId: orders[i].id,
+      years: yrs,
+      days: days - caldays,
+      hours: hrs - calHours,
+      mins: mins - calMinutes
+    };
+  }
+
   return diff;
 }
 
 function calDiffInTime(orders) {
   let orderHistory = [];
   for (i = 0; i < orders.length; i++) {
-    orderHistory.push([orders[i].id, diffTime(orders)]);
+    orderHistory.push([diffTime(orders)]);
+
     for (x = 0; x < menu['menu'].length; x++) {
       if (orders[i].itemId[x] === menu['menu'][x].id) {
         orderHistory[i].push({

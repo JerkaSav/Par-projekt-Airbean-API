@@ -3,7 +3,7 @@ const { Router } = require('express');
 const router = new Router();
 const { nanoid } = require('nanoid');
 const menu = require('../menu.json');
-const { calDiffInTime } = require('../db/functions');
+const { calDiffInTime } = require('../functions');
 
 router.get('/coffee', (req, res) => {
   res.json(menu);
