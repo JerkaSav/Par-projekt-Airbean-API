@@ -3,13 +3,8 @@ const { Router } = require('express');
 const router = new Router();
 const { nanoid } = require('nanoid');
 const menu = require('../menu.json');
-// console.log(menu);
-// for (var key of Object.keys(menu)) {
-//   console.log(Object.keys(menu));
-//   console.log(key);
-//   console.table(menu['menu'][0].id);
-// }
-// Get menu
+const { calDiffInTime } = require('../db/functions');
+
 router.get('/coffee', (req, res) => {
   res.json(menu);
 });
@@ -37,34 +32,9 @@ router.post('/order', (req, res) => {
 
 // Find order history
 router.get('/order/:id', (req, res) => {
-  const today = new Date();
   const userId = req.params.id;
-  // console.log(userId);
   const orders = db.get('orders').filter({ userId: userId }).value();
-
-  // console.log(orders[0].itemId[0]);
-  let orderHistory = [];
-  for (i = 0; i < orders.length; i++) {
-    let msec = today.getTime() - new Date(orders[i].orderCreated).getTime();
-    let mins = Math.floor(msec / 60000);
-    let hrs = Math.floor(mins / 60);
-    let days = Math.floor(hrs / 24);
-    let yrs = Math.floor(days / 365);
-    console.log('år:', yrs, 'dagar:', days, 'Tid:', hrs, 'H :', mins, 'M');
-    let diff = { Hours: hrs, Mins: mins };
-
-    orderHistory.push([orders[i].id, diff]);
-    for (x = 0; x < menu['menu'].length; x++) {
-      if (orders[i].itemId[x] === menu['menu'][x].id) {
-        orderHistory[i].push({
-          title: menu['menu'][x].title,
-          price: menu['menu'][x].price
-        });
-      }
-    }
-  }
-  // console.log(orderHistory);
-  res.json(orderHistory);
+  res.json(calDiffInTime(orders));
 });
 
 // Create account
