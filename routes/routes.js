@@ -17,7 +17,7 @@ router.post('/order', (req, res) => {
 // Find order history
 router.get('/order/:id', (req, res) => {
   const userId = req.params.id;
-   const orders = filterOrders(userId);
+  const orders = filterOrders(userId);
   res.json(calDiffInTime(orders));
 });
 

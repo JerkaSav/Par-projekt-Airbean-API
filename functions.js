@@ -9,7 +9,11 @@ function diffTime(orders) {
   let hrs = Math.floor(mins / 60);
   let days = Math.floor(hrs / 24);
   let yrs = Math.floor(days / 365);
-  let orderDone = false;
+  let orderDone = true;
+
+  if (mins < orders[i].eta) {
+    orderDone = false;
+  }
   let diff = {
     orderDone: orderDone,
     orderId: orders[i].id,
@@ -19,9 +23,7 @@ function diffTime(orders) {
   let calMinutes = hrs * 60;
   let calHours = days * 24;
   let caldays = yrs * 365;
-  if (mins > orders[i].eta || hrs > 0) {
-    orderDone = true;
-  }
+
   if (!diff.orderDone) {
     diff.timeLeft = orders[i].eta - mins;
   }
@@ -58,7 +60,6 @@ function diffTime(orders) {
       }
     }
   }
-  console.log(diff);
   return diff;
 }
 
@@ -78,6 +79,7 @@ function calDiffInTime(orders) {
       });
     }
   }
+
   return orderHistory;
 }
 
